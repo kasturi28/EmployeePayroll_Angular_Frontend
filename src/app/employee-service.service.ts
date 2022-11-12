@@ -11,4 +11,10 @@ export class EmployeeServiceService {
   insertEmployee(employee : any){
     return this.http.post("http://localhost:8085/create",employee);
   }
+
+  // getEmployee(employee : any){
+  //   return this.http.get("http://localhost:8085/get",employee);
+  // }
+
+  
 }
