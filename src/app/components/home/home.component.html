@@ -32,23 +32,28 @@
                     <th>Start Date</th>
                     <th>Actions</th>
                 </tr>
-                <!-- <tr>
+                <tr *ngFor="let employee of list">
                     <td>
-                        <img class="profile" alt="" src="./assets/profile-images/Ellipse -2.png">
+                        <img class="profile" src="{{employee.profilePic}}" alt="">
                     </td>
-                    <td>Kasturi</td>
-                     <td>Female</td>
+                    <td>{{employee.name}}</td>
+                    <td>{{employee.gender}}</td>
                     <td>
-                        <div class="dept-label">HR</div>
-                        <div class="dept-label">Engineer</div>
+                        <div class="dept-label" *ngFor="let department of employee.department">
+                            {{department}}
+                        </div>
                     </td>
-                    <td>3000000</td>
-                    <td>21 Sept 2022</td>
+                    <td>{{employee.salary | currency:'INR'}}</td>
+                    <td>{{employee.startDate | date: 'dd MMM yyyy'}}</td>
                     <td>
-                        <img class="one" id="1" alt="delete" [src]="deleteUrl">
-                        <img class="one" id="1" alt="edit" [src]="editUrl">
+                        <img src="../assets/icons/delete-black-18dp.svg"
+                        id={{employee.employeeId}}
+                         alt="delete" (click)="onDelete(employee.id)">
+                        <img src="../assets/icons/create-black-18dp.svg" alt="edit"
+                        (click)="onUpdate(employee.id,employee)"
+                        id={{employee.id}}>
                     </td>
-                </tr> -->
+                </tr>
             </table>
         </div>
     </div> 
